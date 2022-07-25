@@ -102,10 +102,6 @@ button {
     margin-top: 10px;
 }
 
-button:active {
-    animation: forwards 0.3s float;
-}
-
 .refreshButton {
     border: 1px solid  	 	#85e88d;
     background-color:  	 	#85e88d;

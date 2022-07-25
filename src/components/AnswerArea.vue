@@ -2,6 +2,8 @@
 
 <div class="AnswerArea">
     
+    
+
     <div class="streak" v-if="streak_val >= 3">
         <span> {{ streak_text }}</span>
         <div class="streak_block" v-bind:class="{low_streak: low_streak, med_streak: med_streak, high_streak: high_streak, legendary_streak:legendary_streak}"> {{ streak_val }}</div>
@@ -14,6 +16,8 @@
     </div>
 
     <AnswerBox @button-clicked="buttonHandler" @new-sesh="createSession" @show-settings="showSettings = true;" @reset-streak="streak_val = 0" />
+
+    <button @click="buttonHandler(this.correctAnswer)">Answer correctly</button>
 </div>
 
 
@@ -120,6 +124,7 @@ export default {
 
                 if (this.streak_val >= 3 && this.streak_val < 10) {
                     this.low_streak = true
+                    this.streak_text = "Current streak"
                 } else if(this.streak_val >= 10 && this.streak_val < 15) {
                     this.med_streak = true
                     this.low_streak = false
@@ -127,7 +132,7 @@ export default {
                     this.high_streak = true
                     this.med_streak = false
                     this.streak_text = "Hot streak"
-                } else if(this.streak_val > 20) {
+                } else if(this.streak_val >= 20) {
                     this.legendary_streak = true
                     this.high_streak = false
                     this.streak_text = "Legendary streak"
@@ -177,6 +182,12 @@ export default {
     gap: 10px;
 }
 
+button {
+    display: block;
+    height: 60px;
+    width: 100px;
+}
+
 .streak_block {
     display: flex;
     border: 1px solid #33cc66; 
@@ -191,8 +202,8 @@ export default {
 }
 
 .low_streak {
-    background-color: #33cc66;
-    border: 1px solid #33cc66; 
+    background-color:  	#98fb98;
+    border: 1px solid  	#98fb98; 
     color: black;
 }
 
