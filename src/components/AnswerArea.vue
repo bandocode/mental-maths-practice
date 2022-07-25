@@ -6,7 +6,7 @@
 
     <div class="streak" v-if="streak_val >= 3">
         <span> {{ streak_text }}</span>
-        <div class="streak_block" v-bind:class="{low_streak: low_streak, med_streak: med_streak, high_streak: high_streak, legendary_streak:legendary_streak}"> {{ streak_val }}</div>
+        <div class="streak_block" v-bind:class="{low_streak: low_streak, med_streak: med_streak, high_streak: high_streak, legendary_streak:legendary_streak}">{{ streak_val }}</div>
     </div>
     
     <div style="margin-top: 30px;">
@@ -138,18 +138,14 @@ export default {
                     this.streak_text = "Legendary streak"
                 }
 
-
-
             }
             else {
                 if (ans != "") {
-                this.streak_val = 0
-
-                this.low_streak = false
-                this.med_streak = false
-                this.high_streak = false
-                this.legendary_streak = false
-
+                    this.streak_val = 0
+                    this.low_streak = true
+                    this.med_streak = false
+                    this.high_streak = false
+                    this.legendary_streak = false
                 }
             }
         }

@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
-    "motion": "^10.11.0",
     "tippy.js": "^6.3.7",
     "vue": "^3.2.13"
   },
