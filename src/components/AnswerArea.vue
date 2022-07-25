@@ -95,7 +95,13 @@ export default {
                 case 3: // Division
                     op = "÷"
                     this.correctAnswer = num1 / num2
+
+                    if(num2 == "0") {this.createSession()}
                     break; 
+            }
+
+            if(this.correctAnswer == null || this.correctAnswer == "Infinity") {
+                this.createSession()
             }
 
 
