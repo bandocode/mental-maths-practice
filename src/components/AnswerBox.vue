@@ -50,6 +50,10 @@ export default {
             }
         },
         forward() {
+
+            if(this.answer === "" || this.answer == null) {
+                console.log("nothing")
+            } else {
             this.$emit('button-clicked', this.answer)
             
             const inpField = document.getElementById('answerInputBox')
@@ -57,6 +61,7 @@ export default {
             this.answer = "";
 
             this.inputNotEmpty = false;
+            }
 
 
             

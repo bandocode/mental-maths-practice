@@ -1,11 +1,26 @@
 <template>
 <teleport to="body">
 <div class="bg">
-    <div>
+    <div class="animate__animated animate__bounceInUp animate__faster">
         <!-- content -->
+        <div style="display:flex; flex-direction: row; height: 100%; width: 100%;">
+
+            <!-- sidebar -->
+            <div style="display: flex; height: 100%; width: 200px;" id="sidebar">
+            
+            </div>
+
+            <!-- settings view -->
+
+            <div style="display: flex; height:100%; flex:2;justify-content: center;" id="view">
+            
+            </div>
+
+
+            
+        </div>
 
         <button @click="$emit('close-event')">Close</button>
-
     </div>
 </div>
 </teleport>
@@ -13,8 +28,6 @@
 </template>
 
 <script>
-import {ref} from 'vue'
-
 
 export default {
     name: 'Settings',
@@ -42,9 +55,32 @@ export default {
     width: 80vw;
     height: 90vh;
     background-color: #0a0a0a;
+    justify-content: center;
     align-items: center;
     
 }
+
+.bg > div > button {
+    display: block;
+    height: 35px;
+    width: 100px;
+    outline: none;
+    border: none;
+    background: none;
+    color: #191a2a;
+    background-color: #7e86d6;
+    border-radius: 2px;
+    font-family: 'Poppins', 'Courier New', Courier, monospace;
+    font-weight: 600;
+}
+
+
+.bg > div > button:hover {
+    text-decoration: underline;
+    background-color: #646bab;
+}
+
+
 
 
 </style>

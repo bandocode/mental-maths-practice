@@ -2,11 +2,11 @@
 
 <div class="AnswerArea">
     
-    
-
-    <div class="streak" v-if="streak_val >= 3">
+    <div style="display:flex; height: 35px; width: auto; justify-content: center; align-items: center;">
+    <div class="streak animate__animated animate__heartBeat" v-show="streak_val >= 3">
         <span> {{ streak_text }}</span>
         <div class="streak_block" v-bind:class="{low_streak: low_streak, med_streak: med_streak, high_streak: high_streak, legendary_streak:legendary_streak}">{{ streak_val }}</div>
+    </div>
     </div>
     
     <div style="margin-top: 30px;">
@@ -15,7 +15,7 @@
         </div>
     </div>
 
-    <AnswerBox @button-clicked="buttonHandler" @new-sesh="createSession" @show-settings="showSettings = true;" @reset-streak="streak_val = 0" />
+    <AnswerBox @button-clicked="buttonHandler" @new-sesh="createSession" @show-settings="showSettings = true;" @reset-streak="streak_val = 0; low_streak = true; med_streak = false; high_streak = false; legendary_streak = false;" />
 
     <button @click="buttonHandler(this.correctAnswer)">Answer correctly</button>
 </div>
@@ -140,13 +140,14 @@ export default {
 
             }
             else {
-                if (ans != "") {
-                    this.streak_val = 0
-                    this.low_streak = true
-                    this.med_streak = false
-                    this.high_streak = false
-                    this.legendary_streak = false
-                }
+             
+                this.streak_val = 0
+                this.low_streak = true
+                this.med_streak = false
+                this.high_streak = false
+                this.legendary_streak = false
+                
+
             }
         }
 
@@ -164,6 +165,8 @@ export default {
     display: flex;
     flex-direction: column;
     width: 75vw;
+    height: 90vh;
+    justify-content: center;
 }
 
 .streak {
